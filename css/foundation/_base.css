@@ -1,0 +1,22 @@
+/* foundation/_base.css */
+:root {
+    --color-bg: #ffffff;
+    --color-border: #e2eaf5;
+    --color-text: rgb(244, 11, 11);
+    --color-muted: hsl(0, 96%, 47%);
+    --color-hover: #eef4fb;
+}
+
+[data-theme="dark"] {
+    --color-bg: #0f1620;
+    --color-border: #1e3a5a;
+    --color-text: hsl(0, 81%, 50%);
+    --color-muted: hsl(0, 92%, 49%);
+    --color-hover: #1a2a3a;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+}
