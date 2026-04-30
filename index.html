@@ -1,20 +1,33 @@
 <html>
 
 <head>
-    <title>web site</title>
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <h1 id="target">Guest</h1>
-    <button onclick="sayHello()">Click</button>
+    <section>
+        <h1 id="target">ゲスト</h1>
+        <button onclick="sayHello()">Click</button>
+    </section>
 
     <!-- counter section -->
-    <p id="counter">0</p>
-    <button onclick="decrement()">-1</button>
-    <button onclick="reset()">Reset</button>
+    <section>
+        <p id="counter">0</p>
+        <button onclick="increment()">+1</button>
+        <button onclick="decrement()">-1</button>
+        <button onclick="reset()">Reset</button>
+    </section>
 
-    <script src="main.js"></script>
-    <script src="counter.js"></script>
+    <!-- image section -->
+    <section>
+        <img id="photo" src="assets/images/cat.jpg" width="320">
+        <button onclick="changePic()">切替</button>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/image.js"></script>
 </body>
 
 </html>
