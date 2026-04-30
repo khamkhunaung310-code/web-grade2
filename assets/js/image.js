@@ -9,3 +9,4 @@ function changePic() {
     }
     isCat = !isCat;
 }
+setInterval(changePic, 5000);
