@@ -9,7 +9,7 @@
     /* メインの色（濃い茶色） */
     --accent-color: #F59E0B;
     /* アクセントの色（オレンジ） */
-    --bg-color: #FFFBEB;
+    --bg-color: #f7f0d4;
     /* ページ全体の背景色（クリーム色） */
     --text-color: #1F2937;
     /* 文字色（濃いグレー） */
@@ -104,4 +104,28 @@ section h2 {
     padding: 24px;
     text-align: center;
     border-radius: 12px;
+}
+
+/* Menu */
+.menu-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    flex: 1;
+    min-width: 240px;
+    background-color: var(--card-color);
+    border-radius: 8px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.menu-item img {
+    height: 180px;
+    display: block;
+    width: calc(100% + 48px);
+    margin: -24px -24px 16px;
+    object-fit: cover;
 }
