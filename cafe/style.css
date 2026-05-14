@@ -26,6 +26,10 @@ body {
 
 }
 
+h1, h2, h3 {
+    color: var(--main-color);
+}
+
 header {
     background-color: var(--card-color);
     display: flex;
@@ -38,6 +42,17 @@ nav {
     display: flex;
     gap: 20px;
 }
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 24px;
+
+}
+
+section h2 {
+    font-size: 30px;
+    border-bottom: 3px solid var(--accent-color);
+}
 
 /* Hero */
 #hero {
@@ -46,7 +61,12 @@ nav {
     url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1600&h=900&fit=crop&auto=format&q=80"); /* 背景写真 */
     padding: 140px 24px;
     background-size: cover;
+    background-position: center;
     color: var(--card-color);
     text-align: center;
+    max-width: none;
 }
-
+#hero h2 {
+   border-bottom: none;
+   color: var(--card-color);
+}
