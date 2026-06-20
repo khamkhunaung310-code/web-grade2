@@ -1,117 +1,123 @@
- :root {
-     --primary-red: #e3350d;
-     --dark-bg: #121212;
-     --card-bg: #1e1e1e;
-     --text-white: #ffffff;
-     --text-gray: #b0b0b0;
- }
+/* General Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    /* Black background */
+    color: #ffffff;
+    /* White text */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
- body {
-     margin: 0;
-     padding: 0;
-     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-     background-color: var(--dark-bg);
-     color: var(--text-white);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     min-height: 100vh;
- }
+/* Main Container Card */
+.container {
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+}
 
- .container {
-     width: 90%;
-     max-width: 500px;
-     background: var(--card-bg);
-     padding: 40px;
-     border-radius: 24px;
-     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-     text-align: center;
-     border: 1px solid rgba(255, 255, 255, 0.05);
- }
+/* Header Title */
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
 
- h1 {
-     font-size: 2rem;
-     font-weight: 800;
-     letter-spacing: -1px;
-     margin-bottom: 8px;
-     color: var(--text-white);
- }
+h1 span {
+    color: #ff3333;
+    /* Red accent for "AI" or Model name */
+}
 
- h1 span {
-     color: var(--primary-red);
- }
+/* Start Button */
+.btn-start {
+    background-color: #ff3333;
+    /* Red button */
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+    margin-bottom: 25px;
+}
 
- .subtitle {
-     color: var(--text-gray);
-     font-size: 0.9rem;
-     margin-bottom: 30px;
- }
+.btn-start:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.5);
+}
 
- #webcam-container {
-     margin: 20px auto;
-     border-radius: 16px;
-     overflow: hidden;
-     border: 3px solid var(--primary-red);
-     width: 200px;
-     height: 200px;
-     background: #000;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.btn-start:active {
+    transform: translateY(0);
+}
 
- button {
-     background-color: var(--primary-red);
-     color: white;
-     border: none;
-     padding: 14px 32px;
-     font-size: 1rem;
-     font-weight: bold;
-     border-radius: 12px;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     text-align: left;
- }
+/* Webcam Display Screen */
+#webcam-container {
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #ff3333;
+    /* Red border around camera */
+    background-color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
- .result-item {
-     margin-bottom: 15px;
- }
+#webcam-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
 
- .result-info {
-     display: flex;
-     justify-content: space-between;
-     margin-bottom: 5px;
-     font-size: 0.85rem;
-     font-weight: 600;
- }
+/* Prediction Output Results */
+#label-container {
+    margin-top: 25px;
+    text-align: left;
+}
 
- .bar-container {
-     background: #333;
-     height: 8px;
-     border-radius: 4px;
-     overflow: hidden;
- }
+/* Individual Result Row */
+.prediction-row {
+    margin-bottom: 15px;
+}
 
- .bar-fill {
-     background: var(--primary-red);
-     height: 100%;
-     width: 0%;
-     transition: width 0.2s ease;
- }
+.label-text {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
 
- .result-item {
-     width: 100%;
-     margin-bottom: 25px;
-     text-transform: uppercase;
-     letter-spacing: 1px;
- }
+/* Progress Bar Container */
+.progress-bar-bg {
+    background-color: #333333;
+    border-radius: 8px;
+    height: 12px;
+    width: 100%;
+    overflow: hidden;
+}
 
- button:hover {
-     background-color: #ff4d26;
-     transform: translateY(-2px);
-     box-shadow: 0 8px 15px rgba(227, 53, 13, 0.3);
- }
-
- #label-container {
-     margin-top: 20px;
- }
+/* Active Progress Fill */
+.progress-bar-fill {
+    background-color: #ff3333;
+    /* Red progress fill */
+    height: 100%;
+    width: 0%;
+    /* Will be updated via JS */
+    border-radius: 8px;
+    transition: width 0.1s ease-out;
+}
