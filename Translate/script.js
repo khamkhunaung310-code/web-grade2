@@ -2,19 +2,16 @@ const sourceText = document.getElementById('source-text');
 const targetText = document.getElementById('target-text');
 const translateBtn = document.getElementById('translate-btn');
 const swapBtn = document.getElementById('swap-btn');
-const srcLangText = document.getElementById('src-lang-text');
-const tgtLangText = document.getElementById('tgt-lang-text');
+const srcLangSelect = document.getElementById('src-lang-select');
+const tgtLangSelect = document.getElementById('tgt-lang-select');
 const charCount = document.querySelector('.char-count');
 const copyBtn = document.getElementById('copy-btn');
 
-let srcLang = 'ja';
-let tgtLang = 'en';
-
 // Swap Languages
 swapBtn.addEventListener('click', () => {
-    [srcLang, tgtLang] = [tgtLang, srcLang];
-    srcLangText.innerText = srcLang === 'ja' ? 'Japanese' : 'English';
-    tgtLangText.innerText = tgtLang === 'en' ? 'English' : 'Japanese';
+    const tempLang = srcLangSelect.value;
+    srcLangSelect.value = tgtLangSelect.value;
+    tgtLangSelect.value = tempLang;
 
     // Swap text content as well
     const tempText = sourceText.value;
@@ -41,6 +38,9 @@ async function translateText() {
     const text = sourceText.value.trim();
     if (!text) return;
 
+    const srcLang = srcLangSelect.value;
+    const tgtLang = tgtLangSelect.value;
+
     targetText.innerText = 'Translating...';
     targetText.classList.add('placeholder');
     translateBtn.disabled = true;
@@ -53,13 +53,21 @@ async function translateText() {
         if (data.responseData) {
             let translated = data.responseData.translatedText;
 
-            // If the translation is in Romaji (like "gohan") and we want Japanese characters,
-            // we try to find a match that contains actual Japanese characters.
+            // Special fix for Japanese characters
             if (tgtLang === 'ja' && !/[\u3040-\u30ff\u4e00-\u9faf]/.test(translated)) {
                 const matches = data.matches;
                 if (matches) {
                     const jpMatch = matches.find(m => /[\u3040-\u30ff\u4e00-\u9faf]/.test(m.translation));
                     if (jpMatch) translated = jpMatch.translation;
+                }
+            }
+
+            // Special fix for Chinese characters (zh)
+            if (tgtLang === 'zh' && !/[\u4e00-\u9fa5]/.test(translated)) {
+                const matches = data.matches;
+                if (matches) {
+                    const zhMatch = matches.find(m => /[\u4e00-\u9fa5]/.test(m.translation));
+                    if (zhMatch) translated = zhMatch.translation;
                 }
             }
 

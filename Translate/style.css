@@ -64,10 +64,23 @@ header p {
     border-bottom: 1px solid var(--border-color);
 }
 
-.lang-select {
+select {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: #f8f9fa;
+    font-size: 1rem;
     font-weight: 600;
     color: #2d3436;
-    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+    width: 40%;
+}
+
+select:focus {
+    border-color: var(--primary-color);
+    background: #fff;
 }
 
 #swap-btn {
