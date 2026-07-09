@@ -16,6 +16,7 @@ async function loadModel() {
     }
 }
 
+
 // Generate UI Bars dynamically based on classes in the model
 function buildUIMetrics() {
     labelContainer = document.getElementById("label-container");
