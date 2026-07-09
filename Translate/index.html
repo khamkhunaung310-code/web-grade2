@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linguist | JP-EN Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Linguist<span>Translator</span></h1>
+            <p>Simple. Fast. Accurate.</p>
+        </header>
+
+        <div class="translator-box">
+            <div class="controls">
+                <div class="lang-select">
+                    <span id="src-lang-text">Japanese</span>
+                </div>
+                <button id="swap-btn"><i class="fas fa-exchange-alt"></i></button>
+                <div class="lang-select">
+                    <span id="tgt-lang-text">English</span>
+                </div>
+            </div>
+
+            <div class="text-areas">
+                <div class="input-container">
+                    <textarea id="source-text" placeholder="Type something..."></textarea>
+                    <div class="char-count">0 / 500</div>
+                </div>
+                <div class="output-container">
+                    <div id="target-text" class="placeholder">Translation will appear here...</div>
+                    <button id="copy-btn" title="Copy to clipboard"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+
+            <button id="translate-btn">Translate Now</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Linguist App. Powered by MyMemory API.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

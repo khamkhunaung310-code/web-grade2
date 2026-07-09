@@ -41,6 +41,7 @@ function buildUIMetrics() {
 async function initWebcam() {
     stopImageMode();
     await loadModel();
+    buildUIMetrics(); // Ensure UI is ready for predictions
 
     document.getElementById("placeholder-box").style.display = "none";
     const webcamContainer = document.getElementById("webcam-container");
@@ -68,6 +69,7 @@ async function webcamLoop() {
 document.getElementById('imageUpload').addEventListener('change', async function (event) {
     stopWebcamMode();
     await loadModel();
+    buildUIMetrics(); // Ensure UI is ready for predictions
 
     const file = event.target.files[0];
     if (!file) return;
