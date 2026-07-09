@@ -15,7 +15,7 @@ swapBtn.addEventListener('click', () => {
     [srcLang, tgtLang] = [tgtLang, srcLang];
     srcLangText.innerText = srcLang === 'ja' ? 'Japanese' : 'English';
     tgtLangText.innerText = tgtLang === 'en' ? 'English' : 'Japanese';
-    
+
     // Swap text content as well
     const tempText = sourceText.value;
     sourceText.value = targetText.innerText === 'Translation will appear here...' ? '' : targetText.innerText;
@@ -52,7 +52,7 @@ async function translateText() {
 
         if (data.responseData) {
             let translated = data.responseData.translatedText;
-            
+
             // If the translation is in Romaji (like "gohan") and we want Japanese characters,
             // we try to find a match that contains actual Japanese characters.
             if (tgtLang === 'ja' && !/[\u3040-\u30ff\u4e00-\u9faf]/.test(translated)) {
